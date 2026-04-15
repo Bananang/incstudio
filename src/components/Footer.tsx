@@ -17,7 +17,7 @@ const Footer = () => {
           <div>
             <img src={incLogo} alt="INC STUDIO" className="h-16 md:h-20 mb-6 brightness-0 invert" />
             <p className="text-sm text-background/50 leading-relaxed max-w-sm">
-              하이틴 감성이 가득한 프라이빗 파티룸 & 스튜디오.
+              하이틴 감성이 가득한 프라이빗 파티룸 & 스튜디오
               <br />
               특별한 순간을 만들어 보세요.
             </p>

@@ -29,7 +29,7 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
           >
-            <p className="text-[10px] tracking-[0.3em] text-muted-foreground mb-4 font-serif-en">
+            <p className="tracking-[0.3em] text-muted-foreground mb-4 font-serif-en text-3xl">
               ABOUT THE SPACE
             </p>
             <h2 className="text-2xl md:text-4xl font-bold text-foreground leading-tight mb-8">

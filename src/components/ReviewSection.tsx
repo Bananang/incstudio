@@ -133,7 +133,7 @@ const ReviewSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <p className="text-[10px] tracking-[0.3em] text-muted-foreground mb-4 font-serif-en">
+          <p className="tracking-[0.3em] text-muted-foreground mb-4 font-serif-en text-3xl">
             REAL REVIEWS
           </p>
           <h2 className="text-2xl md:text-4xl font-bold text-foreground leading-tight">
