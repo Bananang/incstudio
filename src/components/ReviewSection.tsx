@@ -4,16 +4,6 @@ import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 const NAVER_REVIEW_URL =
   "https://map.naver.com/p/search/%EC%84%B1%EC%8B%A0%EC%97%AC%EB%8C%80%20%ED%8C%8C%ED%8B%B0%EB%A3%B8/place/2058907416?placePath=/review";
 
-function generateRecentDate(index: number, total: number): string {
-  const now = new Date();
-  const maxDays = 90;
-  const day = Math.floor((index / total) * maxDays) + Math.floor(Math.random() * 5);
-  const d = new Date(now.getTime() - Math.min(day, maxDays) * 86400000);
-  const yyyy = d.getFullYear();
-  const mm = String(d.getMonth() + 1).padStart(2, "0");
-  const dd = String(d.getDate()).padStart(2, "0");
-  return `${yyyy}.${mm}.${dd}`;
-}
 
 const reviewsRaw = [
   { text: "사장님이 친절하고 공간이 쾌적해요💕💕 친구들과 생일 파티를 위해 성신여대 파티룸을 예약하게 되었는데요! 여러모로 만족해서 리뷰 남겨요:)", author: "est**", rating: 5 },
@@ -30,7 +20,7 @@ const reviewsRaw = [
   { text: "식탁이 넓고 여분의자도 많아서 10명정도 앉아도 충분해요! 코타츠 좌식 있는 부분도 따뜻하고 예뻐서 좋았어요. 충전기도 있고 마이크도 있어서 재밌게 놀았어요~", author: "구신s**", rating: 4 },
 ];
 
-type ReviewItem = { text: string; author: string; rating: number; date: string };
+type ReviewItem = { text: string; author: string; rating: number };
 
 const StarRating = ({ rating }: { rating: number }) => (
   <div className="flex gap-0.5">
@@ -107,7 +97,7 @@ const ReviewRow = ({ data, speed, reverse = false }: { data: ReviewItem[]; speed
                 </div>
                 <span className="text-xs text-muted-foreground">{review.author}</span>
               </div>
-              <span className="text-[10px] text-muted-foreground">{review.date}</span>
+              
             </div>
           </motion.a>
         ))}
@@ -117,10 +107,7 @@ const ReviewRow = ({ data, speed, reverse = false }: { data: ReviewItem[]; speed
 };
 
 const ReviewSection = () => {
-  const reviews: ReviewItem[] = useMemo(
-    () => reviewsRaw.map((r, i) => ({ ...r, date: generateRecentDate(i, reviewsRaw.length) })),
-    []
-  );
+  const reviews: ReviewItem[] = useMemo(() => reviewsRaw, []);
   const row1 = reviews.slice(0, 6);
   const row2 = reviews.slice(6, 12);
 
