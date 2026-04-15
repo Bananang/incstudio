@@ -1,5 +1,6 @@
 import { useScroll, useMotionValueEvent } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { setMenuStateListener } from "./Header";
 
 const BOOKING_URL = "https://naver.me/xU4uKO9c";
 
@@ -7,6 +8,12 @@ const FloatingBooking = () => {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMenuStateListener(setMenuOpen);
+    return () => setMenuStateListener(() => {});
+  }, []);
 
   useMotionValueEvent(scrollY, "change", (v) => {
     setScrolled(v > 200);
@@ -29,7 +36,9 @@ const FloatingBooking = () => {
         boxShadow: active
           ? "0 4px 24px rgba(0,71,171,0.3)"
           : "0 4px 24px rgba(0,0,0,0.1)",
-        transition: "background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease",
+        transition: "background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, opacity 0.3s ease",
+        opacity: menuOpen ? 0 : 1,
+        pointerEvents: menuOpen ? "none" : "auto",
       }}
     >
       {active ? "예약하기" : "Reservation"}
