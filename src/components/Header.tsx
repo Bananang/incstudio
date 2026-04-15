@@ -99,7 +99,7 @@ const Header = () => {
               transition={{ duration: 0.25, ease: "easeInOut" }}
             />
             <motion.span
-              className={`block w-6 h-[2px] origin-center transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
+              className={`block w-6 h-[2px] origin-center transition-colors duration-300 ${mobileOpen || scrolled ? "bg-white" : "bg-foreground"}`}
               animate={mobileOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
             />
