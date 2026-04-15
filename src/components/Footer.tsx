@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import incLogo from "@/assets/inc-logo.png";
 
 const BOOKING_URL = "https://naver.me/xU4uKO9c";
 
