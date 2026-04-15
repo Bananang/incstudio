@@ -111,7 +111,7 @@ const Header = () => {
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
             {/* Menu items - centered vertically */}
-            <div className="flex flex-col gap-10 px-10 pt-32">
+            <div className="flex flex-col gap-10 px-8 pt-24">
               {navItems.map((item, i) => (
                 <motion.a
                   key={item.label}
