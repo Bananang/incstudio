@@ -101,7 +101,7 @@ const Header = () => {
       <AnimatePresence>
         {mobileOpen && (
           <motion.nav
-            className="fixed inset-0 z-[58] flex flex-col justify-between md:hidden"
+            className="fixed inset-0 z-[58] flex flex-col justify-between md:hidden overflow-hidden"
             style={{
               background: "hsl(215, 100%, 34%)",
             }}
