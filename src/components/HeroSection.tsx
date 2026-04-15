@@ -62,7 +62,7 @@ const HeroSection = () => {
 
       {/* Mouse scroll indicator - above booking button */}
       <motion.div
-        className="absolute bottom-24 md:bottom-28 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1"
+        className="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}

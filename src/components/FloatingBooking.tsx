@@ -19,7 +19,7 @@ const FloatingBooking = () => {
       href={BOOKING_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-8 left-1/2 z-40 -translate-x-1/2 rounded-full px-8 py-3.5 md:px-10 md:py-4 text-sm md:text-base tracking-[0.05em] font-medium cursor-pointer transition-colors duration-500"
+      className="fixed bottom-6 left-1/2 z-40 -translate-x-1/2 rounded-full px-8 py-3.5 md:px-10 md:py-4 text-sm md:text-base tracking-[0.05em] font-medium cursor-pointer transition-all duration-500 ease-in-out"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 2 }}
