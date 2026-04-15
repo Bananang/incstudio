@@ -27,7 +27,7 @@ const AboutSection = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
           >
             <p className="text-[10px] tracking-[0.3em] text-muted-foreground mb-4 font-serif-en">
               ABOUT THE SPACE
@@ -42,7 +42,7 @@ const AboutSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.2 + i * 0.1, duration: 0.6, ease: "easeOut" }}
+                  transition={{ delay: 0.8 + i * 0.1, duration: 0.6, ease: "easeOut" }}
                   className="border-b border-border pb-4"
                 >
                   <h3 className="text-sm font-bold tracking-wide mb-1">{f.title}</h3>
@@ -52,7 +52,7 @@ const AboutSection = () => {
             </div>
           </motion.div>
 
-          {/* Right - Image */}
+          {/* Right - Image (appears first) */}
           <motion.div className="relative overflow-hidden" style={{ y }}>
             <motion.img
               src={aboutImg}
@@ -62,7 +62,7 @@ const AboutSection = () => {
               initial={{ opacity: 0, scale: 1.05 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0 }}
             />
           </motion.div>
         </div>
