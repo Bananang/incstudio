@@ -31,7 +31,7 @@ const HeroSection = () => {
         style={{ opacity }}
       >
         <motion.p
-          className="text-[10px] tracking-[0.3em] text-primary-foreground/70 mb-4 font-serif-en md:text-sm"
+          className="text-[15px] tracking-[0.3em] text-primary-foreground/70 mb-4 font-serif-en md:text-[21px]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
