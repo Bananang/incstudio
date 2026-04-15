@@ -63,6 +63,8 @@
     font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
     letter-spacing: -0.02em;
     line-height: 1.8;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
   h1, h2, h3, h4, h5, h6 {
