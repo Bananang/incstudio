@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import logoImg from "@/assets/INC-3.png";
 
 const BOOKING_URL = "https://naver.me/xU4uKO9c";
 
