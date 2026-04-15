@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import heroImg from "@/assets/landing-hero.jpg";
-import incLogo from "@/assets/inc-logo.png";
 
 const HeroSection = () => {
   const ref = useRef(null);
@@ -32,23 +31,25 @@ const HeroSection = () => {
         style={{ opacity }}
       >
         <motion.p
-          className="text-[15px] md:text-lg tracking-[0.3em] text-primary-foreground/70 mb-4 font-serif-en"
+          className="text-[10px] md:text-xs tracking-[0.3em] text-primary-foreground/70 mb-4 font-serif-en"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
           YOUR CREATIVE PLAYGROUND
         </motion.p>
-        <motion.img
-          src={incLogo}
-          alt="INC STUDIO"
-          className="h-[60px] md:h-[90px] lg:h-[110px] w-auto"
+        <motion.h1
+          className="font-serif-en text-5xl md:text-7xl lg:text-8xl text-primary-foreground leading-[0.9] tracking-tight"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 1 }}
-        />
+        >
+          INC
+          <br />
+          STUDIO
+        </motion.h1>
         <motion.p
-          className="text-lg md:text-2xl text-primary-foreground/80 mt-6 max-w-xs leading-relaxed"
+          className="text-sm md:text-base text-primary-foreground/80 mt-6 max-w-xs leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4, duration: 0.8 }}
