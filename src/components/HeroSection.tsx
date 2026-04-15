@@ -60,24 +60,38 @@ const HeroSection = () => {
         </motion.p>
       </motion.div>
 
-      {/* Mouse scroll indicator */}
+      {/* Mouse scroll indicator - above booking button */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center"
+        className="absolute bottom-24 md:bottom-28 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
       >
-        <motion.div
-          className="w-6 h-10 rounded-full border-2 border-primary-foreground/40 flex justify-center pt-2"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        >
+        {/* Mouse icon */}
+        <div className="w-6 h-10 rounded-full border-2 border-primary-foreground/50 flex justify-center pt-2 relative">
           <motion.div
-            className="w-1 h-2 rounded-full bg-primary-foreground/60"
-            animate={{ opacity: [1, 0.3, 1], y: [0, 4, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="w-1 h-2 rounded-full bg-primary-foreground/70"
+            animate={{ y: [0, 6, 0], opacity: [1, 0.3, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />
-        </motion.div>
+        </div>
+        {/* Chevron arrows */}
+        <div className="flex flex-col items-center -space-y-1">
+          {[0, 1, 2].map((i) => (
+            <motion.svg
+              key={i}
+              width="14"
+              height="8"
+              viewBox="0 0 14 8"
+              fill="none"
+              className="text-primary-foreground/50"
+              animate={{ y: [0, 4, 0], opacity: [0.3, 0.8, 0.3] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.15 }}
+            >
+              <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </motion.svg>
+          ))}
+        </div>
       </motion.div>
     </section>
   );
