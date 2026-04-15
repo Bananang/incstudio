@@ -44,7 +44,7 @@ const Footer = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-xs tracking-[0.2em] text-background/60 hover:text-background transition-colors duration-300"
+                  className="tracking-[0.2em] text-background/60 hover:text-background transition-colors duration-300 text-base"
                 >
                   {item.label}
                 </a>
