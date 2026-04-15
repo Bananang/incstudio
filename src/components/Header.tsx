@@ -18,9 +18,9 @@ export const setMenuStateListener = (fn: (open: boolean) => void) => {
 
 const Header = () => {
   const { scrollY } = useScroll();
-  const bgOpacity = useTransform(scrollY, [0, 200], [0.85, 0.97]);
+  const bgOpacity = useTransform(scrollY, [0, 200], [0.6, 0.95]);
   const blur = useTransform(scrollY, [0, 200], [8, 20]);
-  const headerBg = useTransform(bgOpacity, (v) => `rgba(30,30,40,${v})`);
+  const headerBg = useTransform(bgOpacity, (v) => `rgba(255,255,255,${v})`);
   const headerBlur = useTransform(blur, (v) => `blur(${v}px)`);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -59,7 +59,7 @@ const Header = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-xs tracking-[0.2em] text-white/60 hover:text-white transition-colors"
+                className="text-xs tracking-[0.2em] text-foreground/60 hover:text-foreground transition-colors"
               >
                 {item.label}
               </a>
@@ -68,7 +68,7 @@ const Header = () => {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs tracking-[0.2em] text-white border border-white/30 px-5 py-2 hover:bg-[hsl(215,100%,34%)] hover:text-white hover:border-[hsl(215,100%,34%)] transition-all"
+              className="text-xs tracking-[0.2em] text-foreground border border-foreground/30 px-5 py-2 hover:bg-[hsl(215,100%,34%)] hover:text-white hover:border-[hsl(215,100%,34%)] transition-all"
             >
               RESERVATION
             </a>
@@ -80,17 +80,17 @@ const Header = () => {
             aria-label="메뉴 열기"
           >
             <motion.span
-              className={`block w-6 h-[2px] origin-center transition-colors duration-300 bg-white`}
+              className={`block w-6 h-[2px] origin-center transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
               animate={mobileOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
             />
             <motion.span
-              className={`block w-6 h-[2px] transition-colors duration-300 bg-white`}
+              className={`block w-6 h-[2px] transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
               animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
               transition={{ duration: 0.25, ease: "easeInOut" }}
             />
             <motion.span
-              className={`block w-6 h-[2px] origin-center transition-colors duration-300 bg-white`}
+              className={`block w-6 h-[2px] origin-center transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
               animate={mobileOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
             />
