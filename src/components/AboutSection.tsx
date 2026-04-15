@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import aboutImg from "@/assets/about-space.jpg";
+import aboutImg from "@/assets/inc-branch02-05.jpeg";
 
 const features = [
   { title: "유니크한 공간", desc: "일렉트릭 블루 카펫과 오렌지 빈티지 가구로 꾸며진 특별한 공간" },
