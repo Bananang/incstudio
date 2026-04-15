@@ -3,10 +3,10 @@ import { useRef } from "react";
 import aboutImg from "@/assets/about-space.jpg";
 
 const features = [
-  { title: "유니크한 공간", desc: "일렉트릭 블루 카펫과 오렌지 빈티지 가구로 꾸며진 특별한 공간" },
-  { title: "포토존 완비", desc: "SNS에 올리고 싶은 인생샷을 건질 수 있는 다양한 포토존" },
-  { title: "사운드 시스템", desc: "블루투스 스피커와 조명으로 완벽한 파티 분위기 연출" },
-  { title: "케이터링 가능", desc: "특별한 날을 위한 케이크, 음료 케이터링 서비스 제공" },
+  { title: "유니크 하이틴 무드 (High-Teen Mood)", desc: "미드센추리 모던 컨셉과 하이틴 감성이 결합된, 오직 INC STUDIO에서만 만날 수 있는 독보적인 공간미" },
+  { title: "시그니처 포토존 (Photo Zones)", desc: "셔터를 누르는 모든 곳이 스튜디오가 되는 곳, SNS 감성을 자극하는 다채로운 포토존 완비" },
+  { title: "프라이빗 시네마 (Private Cinema)", desc: "55인치 4K 대형 TV + 고성능 사운드바로 즐기는 영화관 그 이상의 몰입감" },
+  { title: "INC 고객 전용 맛집 제휴 (Partnership)", desc: "인근 맛집 제휴를 통해 예약 고객에게만 드리는 특별한 서비스 메뉴와 할인 혜택" },
 ];
 
 const AboutSection = () => {
@@ -39,7 +39,7 @@ const AboutSection = () => {
               인테리어 전문 회사가 운영하는<br />
               감각적인 공간 브랜드 'INC 스튜디오'
             </p>
-            <div className="space-y-6">
+            <div className="space-y-6 font-sans">
               {features.map((f, i) => (
                 <motion.div
                   key={f.title}
