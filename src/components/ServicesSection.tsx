@@ -36,7 +36,7 @@ const ServicesSection = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
             >
-              <span className="text-[10px] tracking-[0.2em] text-primary-foreground/30 block mb-4 font-serif-en">
+              <span className="tracking-[0.2em] text-primary-foreground/30 block mb-4 font-serif-en text-lg">
                 {s.num}
               </span>
               <h3 className="text-xl md:text-2xl font-bold text-primary-foreground mb-2">
