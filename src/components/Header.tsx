@@ -19,6 +19,8 @@ const Header = () => {
   const { scrollY } = useScroll();
   const bgOpacity = useTransform(scrollY, [0, 200], [0.6, 0.95]);
   const blur = useTransform(scrollY, [0, 200], [8, 20]);
+  const headerBg = useTransform(bgOpacity, (v) => `rgba(255,255,255,${v})`);
+  const headerBlur = useTransform(blur, (v) => `blur(${v}px)`);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   // Lock body scroll & notify FloatingBooking
@@ -42,11 +44,9 @@ const Header = () => {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="fixed top-0 left-0 right-0 z-[60]"
         style={{
-          backgroundColor: useTransform(bgOpacity, (v) =>
-            mobileOpen ? "transparent" : `rgba(255,255,255,${v})`
-          ),
-          backdropFilter: mobileOpen ? "none" : useTransform(blur, (v) => `blur(${v}px)`),
-          WebkitBackdropFilter: mobileOpen ? "none" : useTransform(blur, (v) => `blur(${v}px)`),
+          backgroundColor: mobileOpen ? "transparent" : headerBg,
+          backdropFilter: mobileOpen ? "none" : headerBlur,
+          WebkitBackdropFilter: mobileOpen ? "none" : headerBlur,
         }}
       >
         <div className="container mx-auto flex items-center justify-between py-5 px-8">
