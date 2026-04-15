@@ -67,7 +67,7 @@ const Header = () => {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs tracking-[0.2em] text-foreground border border-foreground/30 px-5 py-2 hover:bg-foreground hover:text-background transition-all"
+              className="text-xs tracking-[0.2em] border border-foreground/30 px-5 py-2 transition-all bg-primary text-primary-foreground"
             >
               RESERVATION
             </a>
