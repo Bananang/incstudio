@@ -31,12 +31,12 @@ const HeroSection = () => {
         style={{ opacity }}
       >
         <motion.p
-          className="text-[10px] md:text-xs tracking-[0.3em] text-primary-foreground/70 mb-4 font-serif-en"
+          className="text-[10px] tracking-[0.3em] text-primary-foreground/70 mb-4 font-serif-en md:text-sm"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
-          YOUR CREATIVE PLAYGROUND
+          INTERNATIONAL NERD CLUB
         </motion.p>
         <motion.h1
           className="font-serif-en text-5xl md:text-7xl lg:text-8xl text-primary-foreground leading-[0.9] tracking-tight"
