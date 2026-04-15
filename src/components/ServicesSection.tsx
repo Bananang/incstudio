@@ -28,12 +28,9 @@ const ServicesSection = () => {
 
         <div className="grid md:grid-cols-2 gap-0 border-t border-primary-foreground/20">
           {services.map((s, i) => (
-            <motion.a
+            <motion.div
               key={s.num}
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block border-b border-primary-foreground/20 py-10 px-4 md:px-8 hover:bg-primary-foreground/5 transition-colors duration-500"
+              className="block border-b border-primary-foreground/20 py-10 px-4 md:px-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -42,11 +39,11 @@ const ServicesSection = () => {
               <span className="text-[10px] tracking-[0.2em] text-primary-foreground/30 block mb-4 font-serif-en">
                 {s.num}
               </span>
-              <h3 className="text-xl md:text-2xl font-bold text-primary-foreground mb-2 group-hover:translate-x-2 transition-transform duration-300">
+              <h3 className="text-xl md:text-2xl font-bold text-primary-foreground mb-2">
                 {s.title}
               </h3>
               <p className="text-sm text-primary-foreground/60 leading-relaxed">{s.desc}</p>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>
