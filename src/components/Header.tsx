@@ -158,7 +158,7 @@ const Header = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               <p className="text-white/60 text-sm tracking-wide">INC STUDIO</p>
-              <p className="text-white/40 text-xs tracking-wide">Premium Beauty Space</p>
+              <p className="text-white/40 text-xs tracking-wide">International Nerd Club</p>
             </motion.div>
           </motion.nav>
         )}
