@@ -79,7 +79,6 @@ const Header = () => {
               rel="noopener noreferrer"
               className={`text-xs tracking-[0.2em] px-5 py-2 transition-all duration-500 ${scrolled ? "text-white border border-white/40 hover:bg-white/20" : "text-foreground border border-foreground/30 hover:bg-[hsl(215,100%,34%)] hover:text-white hover:border-[hsl(215,100%,34%)]"}`}
             >
-            >
               RESERVATION
             </a>
           </nav>
