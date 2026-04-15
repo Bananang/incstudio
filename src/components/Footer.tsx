@@ -19,19 +19,22 @@ const Footer = () => {
           transition={{ duration: 0.8 }}
           className="grid md:grid-cols-2 gap-12"
         >
-          {/* Left: Logo + Info */}
+          {/* Left: Logo + Description + Info */}
           <div>
-            <img src={incLogo} alt="INC STUDIO" className="h-16 md:h-20 mb-6 brightness-0 invert" />
-            <div className="space-y-1 text-sm text-background/50 mb-6">
-              <p>회사명 <span className="text-background/70">INC 스튜디오</span></p>
-              <p>주소 <span className="text-background/70">서울 성북구 보문로34길 92 B1</span></p>
-              <p>전화번호 <span className="text-background/70">0507-1422-5160</span></p>
-            </div>
-            <p className="text-sm text-background/50 leading-relaxed max-w-sm">
+            <img src={incLogo} alt="INC STUDIO" className="h-16 md:h-20 mb-4 brightness-0 invert" />
+            <p className="text-sm text-background/50 leading-relaxed max-w-sm mb-8">
               하이틴 감성이 가득한 프라이빗 파티룸 & 스튜디오
               <br />
               특별한 순간을 만들어 보세요.
             </p>
+            <div className="space-y-1 text-sm text-background/50">
+              <p>
+                회사명 <span className="text-background/70">INC 스튜디오</span>
+                <span className="mx-3 text-background/20">|</span>
+                주소 <span className="text-background/70">서울 성북구 보문로34길 92 B1</span>
+              </p>
+              <p>전화번호 <span className="text-background/70">0507-1422-5160</span></p>
+            </div>
           </div>
 
           {/* Right: Navigation */}
