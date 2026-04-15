@@ -59,7 +59,7 @@ const Header = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-xs tracking-[0.2em] text-foreground/60 hover:text-foreground transition-colors"
+                className="text-xs tracking-[0.2em] text-white/60 hover:text-white transition-colors"
               >
                 {item.label}
               </a>
