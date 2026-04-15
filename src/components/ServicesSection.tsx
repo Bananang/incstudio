@@ -11,7 +11,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="snap-section min-h-screen flex items-center bg-electric py-32">
+    <section id="services" className="snap-section min-h-screen flex items-center py-32 bg-[#407bce]">
       <div className="container mx-auto px-8 md:px-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
