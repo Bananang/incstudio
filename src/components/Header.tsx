@@ -40,15 +40,17 @@ const Header = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="fixed top-0 left-0 right-0 z-50"
+        className="fixed top-0 left-0 right-0 z-[60]"
         style={{
-          backgroundColor: useTransform(bgOpacity, (v) => `rgba(255,255,255,${v})`),
-          backdropFilter: useTransform(blur, (v) => `blur(${v}px)`),
-          WebkitBackdropFilter: useTransform(blur, (v) => `blur(${v}px)`),
+          backgroundColor: useTransform(bgOpacity, (v) =>
+            mobileOpen ? "transparent" : `rgba(255,255,255,${v})`
+          ),
+          backdropFilter: mobileOpen ? "none" : useTransform(blur, (v) => `blur(${v}px)`),
+          WebkitBackdropFilter: mobileOpen ? "none" : useTransform(blur, (v) => `blur(${v}px)`),
         }}
       >
         <div className="container mx-auto flex items-center justify-between py-5 px-8">
-          <a href="#" className="text-xl font-serif-en tracking-widest text-foreground">
+          <a href="#" className={`text-xl font-serif-en tracking-widest transition-colors duration-300 ${mobileOpen ? "text-white" : "text-foreground"}`}>
             INC STUDIO
           </a>
           <nav className="hidden md:flex items-center gap-10">
@@ -72,22 +74,22 @@ const Header = () => {
           </nav>
           {/* Mobile hamburger */}
           <button
-            className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5 z-[60]"
+            className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5 z-[70]"
             onClick={() => setMobileOpen((p) => !p)}
             aria-label="메뉴 열기"
           >
             <motion.span
-              className="block w-5 h-[1.5px] bg-foreground origin-center"
+              className={`block w-5 h-[1.5px] origin-center transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
               animate={mobileOpen ? { rotate: 45, y: 4.5 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
             />
             <motion.span
-              className="block w-5 h-[1.5px] bg-foreground"
+              className={`block w-5 h-[1.5px] transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
               animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
               transition={{ duration: 0.25, ease: "easeInOut" }}
             />
             <motion.span
-              className="block w-5 h-[1.5px] bg-foreground origin-center"
+              className={`block w-5 h-[1.5px] origin-center transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
               animate={mobileOpen ? { rotate: -45, y: -4.5 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
             />
@@ -95,42 +97,30 @@ const Header = () => {
         </div>
       </motion.header>
 
-      {/* Mobile side panel */}
+      {/* Mobile full-screen menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <>
-            {/* Overlay */}
-            <motion.div
-              className="fixed inset-0 z-[55] md:hidden"
-              style={{ backgroundColor: "rgba(0,0,0,0.2)" }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={() => setMobileOpen(false)}
-            />
-            {/* Glass panel */}
-            <motion.nav
-              className="fixed top-0 right-0 bottom-0 w-3/4 max-w-xs z-[56] flex flex-col pt-28 px-10 gap-10 md:hidden"
-              style={{
-                background: "rgba(255,255,255,0.12)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-              }}
-              initial={{ x: "100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "100%", opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            >
+          <motion.nav
+            className="fixed inset-0 z-[58] flex flex-col justify-between md:hidden"
+            style={{
+              background: "hsl(215, 100%, 34%)",
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            {/* Menu items - centered vertically */}
+            <div className="flex flex-col gap-10 px-10 pt-32">
               {navItems.map((item, i) => (
                 <motion.a
                   key={item.label}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-lg tracking-[0.25em] text-foreground/80 hover:text-foreground transition-colors leading-relaxed"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: 0.1 + i * 0.06 }}
+                  className="text-3xl font-bold tracking-[0.05em] text-white/90 hover:text-white transition-colors"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
                 >
                   {item.label}
                 </motion.a>
@@ -139,18 +129,27 @@ const Header = () => {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg tracking-[0.25em] text-foreground border border-foreground/30 px-6 py-4 text-center hover:bg-foreground hover:text-background transition-all mt-4 active:scale-[1.03]"
-                style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.1 + navItems.length * 0.06 }}
-                whileHover={{ scale: 1.04, boxShadow: "0 4px 20px rgba(0,0,0,0.12)" }}
-                whileTap={{ scale: 1.03 }}
+                onClick={() => setMobileOpen(false)}
+                className="text-3xl font-bold tracking-[0.05em] text-white/90 hover:text-white transition-colors"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.1 + navItems.length * 0.08 }}
               >
                 RESERVATION
               </motion.a>
-            </motion.nav>
-          </>
+            </div>
+
+            {/* Bottom info */}
+            <motion.div
+              className="px-10 pb-12 flex flex-col gap-3"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <p className="text-white/60 text-sm tracking-wide">INC STUDIO</p>
+              <p className="text-white/40 text-xs tracking-wide">Premium Beauty Space</p>
+            </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </>
