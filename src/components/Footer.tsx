@@ -54,7 +54,7 @@ const Footer = () => {
         </motion.div>
 
         <div className="border-t border-background/10 mt-16 pt-8">
-          <p className="text-[10px] tracking-[0.1em] text-background/30">
+          <p className="tracking-[0.1em] text-background/30 text-sm">
             © 2025 INC STUDIO. All rights reserved.
           </p>
         </div>
