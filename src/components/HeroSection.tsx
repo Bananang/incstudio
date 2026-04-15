@@ -1,95 +1,80 @@
-import { motion } from "framer-motion";
-import heroImg from "@/assets/hero-party.jpg";
-
-const BOOKING_URL = "https://naver.me/xU4uKO9c";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import heroImg from "@/assets/landing-hero.jpg";
 
 const HeroSection = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-electric pt-20">
-      {/* Background image */}
-      <div className="absolute inset-0">
+    <section ref={ref} className="snap-section relative h-screen overflow-hidden">
+      {/* Full-bleed image with parallax zoom */}
+      <motion.div className="absolute inset-0" style={{ scale }}>
         <img
           src={heroImg}
-          alt="INC STUDIO 파티룸"
-          className="w-full h-full object-cover opacity-30"
+          alt="INC STUDIO 공간"
+          className="w-full h-full object-cover"
           width={1920}
-          height={1080}
+          height={1280}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90" />
-      </div>
+        <div className="absolute inset-0 bg-foreground/20" />
+      </motion.div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
+      {/* Asymmetric text - bottom left */}
+      <motion.div
+        className="absolute bottom-16 left-8 md:bottom-24 md:left-16 z-10"
+        style={{ opacity }}
+      >
+        <motion.p
+          className="text-[10px] md:text-xs tracking-[0.3em] text-primary-foreground/70 mb-4"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", bounce: 0.4, duration: 1 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
         >
-          <motion.p
-            className="text-secondary font-bold text-lg md:text-xl mb-4 tracking-wider"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, type: "spring", bounce: 0.5 }}
-          >
-            ★ YOUR CREATIVE PLAYGROUND ★
-          </motion.p>
-
-          <motion.h2
-            className="text-5xl md:text-7xl lg:text-9xl font-black text-primary-foreground leading-none mb-6"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, type: "spring", bounce: 0.3 }}
-          >
-            INC
-            <br />
-            <span className="text-secondary">STUDIO</span>
-          </motion.h2>
-
-          <motion.p
-            className="text-primary-foreground/90 text-lg md:text-2xl font-medium mb-10 max-w-xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            하이틴 감성이 가득한
-            <br />
-            우리만의 프라이빗 아지트
-          </motion.p>
-
-          <motion.a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-secondary text-secondary-foreground px-10 py-4 rounded-full text-xl font-black shadow-orange-glow"
-            whileHover={{ scale: 1.15, rotate: 3 }}
-            whileTap={{ scale: 0.9 }}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, type: "spring", bounce: 0.5 }}
-          >
-            네이버 예약하기 →
-          </motion.a>
-        </motion.div>
-
-        {/* Decorative shapes */}
-        <motion.div
-          className="absolute top-20 left-10 w-16 h-16 rounded-full bg-secondary/30"
-          animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }}
-          transition={{ duration: 4, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-24 h-24 rounded-full border-4 border-secondary/40"
-          animate={{ y: [0, 20, 0], rotate: [0, -15, 0] }}
-          transition={{ duration: 5, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute top-1/3 right-20 text-5xl"
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          YOUR CREATIVE PLAYGROUND
+        </motion.p>
+        <motion.h1
+          className="font-serif text-5xl md:text-7xl lg:text-8xl text-primary-foreground leading-[0.9] tracking-tight"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 1 }}
         >
-          ✦
-        </motion.div>
-      </div>
+          INC
+          <br />
+          STUDIO
+        </motion.h1>
+        <motion.p
+          className="text-sm md:text-base text-primary-foreground/80 mt-6 max-w-xs leading-relaxed"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
+        >
+          하이틴 감성이 가득한
+          <br />
+          우리만의 프라이빗 아지트
+        </motion.p>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 right-8 md:bottom-12 md:right-16 z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+      >
+        <motion.div
+          className="w-[1px] h-16 bg-primary-foreground/40 mx-auto"
+          animate={{ scaleY: [0, 1, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          style={{ transformOrigin: "top" }}
+        />
+        <p className="text-[10px] tracking-[0.2em] text-primary-foreground/50 mt-2">SCROLL</p>
+      </motion.div>
     </section>
   );
 };
