@@ -130,12 +130,13 @@ const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="text-3xl font-bold tracking-[0.05em] text-white/90 hover:text-white transition-colors"
+                className="mt-8 inline-block border border-white/40 px-8 py-4 text-lg tracking-[0.25em] text-white/90 hover:text-white hover:border-white hover:bg-white/10 transition-all duration-300 text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 + navItems.length * 0.08 }}
+                whileTap={{ scale: 0.97 }}
               >
-                RESERVATION
+                RESERVATION →
               </motion.a>
             </div>
 
