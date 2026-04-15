@@ -82,7 +82,7 @@ const EditorialBlock = ({ item, index }: { item: typeof sections[0]; index: numb
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
       >
-        <p className="text-[10px] tracking-[0.3em] text-muted-foreground mb-4 font-serif-en">{item.tag}</p>
+        <p className="tracking-[0.3em] text-muted-foreground mb-4 font-serif-en text-2xl">{item.tag}</p>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-6 whitespace-pre-line">
           {item.title}
         </h2>

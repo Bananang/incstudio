@@ -20,7 +20,7 @@ const ServicesSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-20"
         >
-          <p className="text-[10px] tracking-[0.3em] text-primary-foreground/50 mb-4 font-serif-en">EXPERIENCES</p>
+          <p className="tracking-[0.3em] text-primary-foreground/50 mb-4 font-serif-en text-3xl">EXPERIENCES</p>
           <h2 className="text-2xl md:text-4xl font-bold text-primary-foreground leading-tight">
             다양한 순간을 위한 공간
           </h2>
