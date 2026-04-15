@@ -74,23 +74,23 @@ const Header = () => {
           </nav>
           {/* Mobile hamburger */}
           <button
-            className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5 z-[70]"
+            className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-[6px] z-[70]"
             onClick={() => setMobileOpen((p) => !p)}
             aria-label="메뉴 열기"
           >
             <motion.span
-              className={`block w-5 h-[1.5px] origin-center transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
-              animate={mobileOpen ? { rotate: 45, y: 4.5 } : { rotate: 0, y: 0 }}
+              className={`block w-6 h-[2px] origin-center transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
+              animate={mobileOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
             />
             <motion.span
-              className={`block w-5 h-[1.5px] transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
+              className={`block w-6 h-[2px] transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
               animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
               transition={{ duration: 0.25, ease: "easeInOut" }}
             />
             <motion.span
-              className={`block w-5 h-[1.5px] origin-center transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
-              animate={mobileOpen ? { rotate: -45, y: -4.5 } : { rotate: 0, y: 0 }}
+              className={`block w-6 h-[2px] origin-center transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
+              animate={mobileOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
             />
           </button>
