@@ -32,9 +32,13 @@ const AboutSection = () => {
             <p className="tracking-[0.3em] text-muted-foreground mb-4 font-serif-en text-3xl">
               ABOUT THE SPACE
             </p>
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground leading-tight mb-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground leading-tight mb-4">
               감각으로 완성된 공간
             </h2>
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-8">
+              인테리어 전문 회사가 운영하는<br />
+              감각적인 공간 브랜드 'INC 스튜디오'
+            </p>
             <div className="space-y-6">
               {features.map((f, i) => (
                 <motion.div
