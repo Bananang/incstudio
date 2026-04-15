@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"Noto Sans KR"', 'sans-serif'],
+        sans: ['Pretendard', '"Noto Sans KR"', 'sans-serif'],
+        serif: ['"Playfair Display"', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -52,8 +53,7 @@ export default {
         },
         electric: "hsl(var(--electric-blue))",
         "electric-light": "hsl(var(--electric-blue-light))",
-        "neon-orange": "hsl(var(--neon-orange))",
-        cream: "hsl(var(--cream))",
+        surface: "hsl(var(--surface))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -79,22 +79,10 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "bounce-in": {
-          "0%": { transform: "scale(0.3)", opacity: "0" },
-          "50%": { transform: "scale(1.05)" },
-          "70%": { transform: "scale(0.9)" },
-          "100%": { transform: "scale(1)", opacity: "1" },
-        },
-        wiggle: {
-          "0%, 100%": { transform: "rotate(-3deg)" },
-          "50%": { transform: "rotate(3deg)" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "bounce-in": "bounce-in 0.6s ease-out",
-        wiggle: "wiggle 1s ease-in-out infinite",
       },
     },
   },

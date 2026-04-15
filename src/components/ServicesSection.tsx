@@ -3,76 +3,49 @@ import { motion } from "framer-motion";
 const BOOKING_URL = "https://naver.me/xU4uKO9c";
 
 const services = [
-  {
-    title: "파티룸 대여",
-    desc: "생일파티, 기념일, 모임 등 다양한 파티를 위한 프라이빗 공간을 제공합니다.",
-    emoji: "🎉",
-    color: "from-primary to-electric-light",
-  },
-  {
-    title: "스튜디오 촬영",
-    desc: "프로필, 화보, SNS 콘텐츠 촬영을 위한 감각적인 스튜디오 공간입니다.",
-    emoji: "📷",
-    color: "from-secondary to-neon-orange",
-  },
-  {
-    title: "브라이덜 샤워",
-    desc: "결혼을 앞둔 신부를 위한 특별한 브라이덜 샤워 파티를 준비해드립니다.",
-    emoji: "💍",
-    color: "from-primary to-electric-light",
-  },
-  {
-    title: "소규모 이벤트",
-    desc: "팬미팅, 소규모 전시, 팝업 등 크리에이티브한 이벤트 공간으로 활용하세요.",
-    emoji: "🌟",
-    color: "from-secondary to-neon-orange",
-  },
+  { title: "파티룸 대여", desc: "생일파티, 기념일, 모임 등 다양한 파티를 위한 프라이빗 공간", num: "01" },
+  { title: "스튜디오 촬영", desc: "프로필, 화보, SNS 콘텐츠 촬영을 위한 감각적인 스튜디오", num: "02" },
+  { title: "브라이덜 샤워", desc: "결혼을 앞둔 신부를 위한 특별한 브라이덜 샤워 파티", num: "03" },
+  { title: "소규모 이벤트", desc: "팬미팅, 소규모 전시, 팝업 등 크리에이티브한 이벤트 공간", num: "04" },
 ];
 
 const ServicesSection = () => {
   return (
-    <section className="py-24 bg-electric relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 text-8xl">★</div>
-        <div className="absolute bottom-10 right-10 text-8xl">♥</div>
-        <div className="absolute top-1/2 left-1/2 text-8xl">✦</div>
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="services" className="snap-section min-h-screen flex items-center bg-electric py-32">
+      <div className="container mx-auto px-8 md:px-16">
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ type: "spring", bounce: 0.4 }}
+          transition={{ duration: 0.8 }}
+          className="mb-20"
         >
-          <span className="text-secondary font-bold text-sm tracking-widest uppercase">Services</span>
-          <h2 className="text-4xl md:text-6xl font-black text-primary-foreground mt-2">
-            무엇을 할 수 있나요? ✨
+          <p className="text-[10px] tracking-[0.3em] text-primary-foreground/50 mb-4">SERVICES</p>
+          <h2 className="font-serif text-4xl md:text-6xl text-primary-foreground leading-[1.1]">
+            무엇을 할 수<br />있나요
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 gap-0 border-t border-primary-foreground/20">
           {services.map((s, i) => (
             <motion.a
-              key={s.title}
+              key={s.num}
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block bg-primary-foreground rounded-3xl p-8 cursor-pointer"
-              initial={{ opacity: 0, y: 50, rotate: i % 2 === 0 ? -3 : 3 }}
-              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+              className="group block border-b border-primary-foreground/20 py-10 px-4 md:px-8 hover:bg-primary-foreground/5 transition-colors duration-500"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, type: "spring", bounce: 0.5 }}
-              whileHover={{ scale: 1.08, y: -10, rotate: i % 2 === 0 ? 2 : -2 }}
+              transition={{ delay: i * 0.1, duration: 0.6 }}
             >
-              <span className="text-5xl block mb-4">{s.emoji}</span>
-              <h3 className="text-xl font-black text-electric mb-2">{s.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-              <div className="mt-4 text-secondary font-bold text-sm group-hover:translate-x-2 transition-transform">
-                예약하기 →
-              </div>
+              <span className="text-[10px] tracking-[0.2em] text-primary-foreground/30 block mb-4">
+                {s.num}
+              </span>
+              <h3 className="text-xl md:text-2xl font-bold text-primary-foreground mb-2 group-hover:translate-x-2 transition-transform duration-300">
+                {s.title}
+              </h3>
+              <p className="text-sm text-primary-foreground/60 leading-relaxed">{s.desc}</p>
             </motion.a>
           ))}
         </div>
