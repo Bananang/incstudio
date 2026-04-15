@@ -18,9 +18,9 @@ export const setMenuStateListener = (fn: (open: boolean) => void) => {
 
 const Header = () => {
   const { scrollY } = useScroll();
-  const bgOpacity = useTransform(scrollY, [0, 200], [0.6, 0.95]);
+  const bgOpacity = useTransform(scrollY, [0, 200], [0.85, 0.97]);
   const blur = useTransform(scrollY, [0, 200], [8, 20]);
-  const headerBg = useTransform(bgOpacity, (v) => `rgba(255,255,255,${v})`);
+  const headerBg = useTransform(bgOpacity, (v) => `rgba(30,30,40,${v})`);
   const headerBlur = useTransform(blur, (v) => `blur(${v}px)`);
   const [mobileOpen, setMobileOpen] = useState(false);
 
