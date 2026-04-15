@@ -30,7 +30,7 @@ const ServicesSection = () => {
           {services.map((s, i) => (
             <motion.div
               key={s.num}
-              className="block border-b border-primary-foreground/20 py-10 px-4 md:px-8"
+              className="block border-b border-primary-foreground/20 py-10 px-4 md:px-8 hover:bg-primary-foreground/5 hover:scale-[1.02] transition-all duration-500 origin-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
