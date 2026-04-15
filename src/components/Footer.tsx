@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import incLogo from "@/assets/inc-logo.png";
 
 const BOOKING_URL = "https://naver.me/xU4uKO9c";
 
@@ -14,7 +15,7 @@ const Footer = () => {
           className="grid md:grid-cols-2 gap-12"
         >
           <div>
-            <h2 className="font-serif text-3xl md:text-4xl text-background mb-6">INC STUDIO</h2>
+            <img src={incLogo} alt="INC STUDIO" className="h-16 md:h-20 mb-6 brightness-0 invert" />
             <p className="text-sm text-background/50 leading-relaxed max-w-sm">
               하이틴 감성이 가득한 프라이빗 파티룸 & 스튜디오.
               <br />
