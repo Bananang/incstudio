@@ -48,23 +48,27 @@ const Header = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="fixed top-0 left-0 right-0 z-[60]"
+        className="fixed top-0 left-0 right-0 z-[60] transition-colors duration-500"
         style={{
-          backgroundColor: mobileOpen ? "transparent" : headerBg,
+          backgroundColor: mobileOpen
+            ? "transparent"
+            : scrolled
+              ? "hsl(215, 100%, 34%)"
+              : "rgba(255,255,255,0.7)",
           backdropFilter: mobileOpen ? "none" : headerBlur,
           WebkitBackdropFilter: mobileOpen ? "none" : headerBlur,
         }}
       >
         <div className="container mx-auto flex items-center justify-between py-5 px-8">
           <a href="#" className="flex items-center">
-            <img src={logoImg} alt="INC STUDIO" className="h-10 w-auto drop-shadow-sm" />
+            <img src={logoImg} alt="INC STUDIO" className={`h-10 w-auto drop-shadow-sm transition-all duration-500 ${scrolled ? "brightness-[2]" : ""}`} />
           </a>
           <nav className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-xs tracking-[0.2em] text-foreground/60 hover:text-foreground transition-colors"
+                className={`text-xs tracking-[0.2em] transition-colors duration-500 ${scrolled ? "text-white/70 hover:text-white" : "text-foreground/60 hover:text-foreground"}`}
               >
                 {item.label}
               </a>
@@ -73,7 +77,8 @@ const Header = () => {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs tracking-[0.2em] text-foreground border border-foreground/30 px-5 py-2 hover:bg-[hsl(215,100%,34%)] hover:text-white hover:border-[hsl(215,100%,34%)] transition-all"
+              className={`text-xs tracking-[0.2em] px-5 py-2 transition-all duration-500 ${scrolled ? "text-white border border-white/40 hover:bg-white/20" : "text-foreground border border-foreground/30 hover:bg-[hsl(215,100%,34%)] hover:text-white hover:border-[hsl(215,100%,34%)]"}`}
+            >
             >
               RESERVATION
             </a>
