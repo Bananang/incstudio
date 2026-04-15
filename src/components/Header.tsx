@@ -51,8 +51,8 @@ const Header = () => {
         }}
       >
         <div className="container mx-auto flex items-center justify-between py-5 px-8">
-          <a href="#" className={`text-xl font-serif-en tracking-widest transition-colors duration-300 ${mobileOpen ? "text-white" : "text-foreground"}`}>
-            INC STUDIO
+          <a href="#" className="flex items-center">
+            <img src={logoImg} alt="INC STUDIO" className="h-8 w-auto brightness-110 drop-shadow-sm" />
           </a>
           <nav className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
