@@ -80,7 +80,7 @@ const Header = () => {
             aria-label="메뉴 열기"
           >
             <motion.span
-              className={`block w-6 h-[2px] origin-center transition-colors duration-300 ${mobileOpen ? "bg-white" : "bg-foreground"}`}
+              className={`block w-6 h-[2px] origin-center transition-colors duration-300 bg-white`}
               animate={mobileOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
             />
