@@ -27,11 +27,11 @@ const HeroSection = () => {
 
       {/* Asymmetric text - bottom left */}
       <motion.div
-        className="absolute bottom-16 left-8 md:bottom-24 md:left-16 z-10"
+        className="absolute bottom-24 left-8 md:bottom-32 md:left-16 z-10"
         style={{ opacity }}
       >
         <motion.p
-          className="text-[10px] md:text-xs tracking-[0.3em] text-primary-foreground/70 mb-4"
+          className="text-[10px] md:text-xs tracking-[0.3em] text-primary-foreground/70 mb-4 font-serif-en"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
@@ -39,7 +39,7 @@ const HeroSection = () => {
           YOUR CREATIVE PLAYGROUND
         </motion.p>
         <motion.h1
-          className="font-serif text-5xl md:text-7xl lg:text-8xl text-primary-foreground leading-[0.9] tracking-tight"
+          className="font-serif-en text-5xl md:text-7xl lg:text-8xl text-primary-foreground leading-[0.9] tracking-tight"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 1 }}
@@ -60,20 +60,24 @@ const HeroSection = () => {
         </motion.p>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Mouse scroll indicator */}
       <motion.div
-        className="absolute bottom-8 right-8 md:bottom-12 md:right-16 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
       >
         <motion.div
-          className="w-[1px] h-16 bg-primary-foreground/40 mx-auto"
-          animate={{ scaleY: [0, 1, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          style={{ transformOrigin: "top" }}
-        />
-        <p className="text-[10px] tracking-[0.2em] text-primary-foreground/50 mt-2">SCROLL</p>
+          className="w-6 h-10 rounded-full border-2 border-primary-foreground/40 flex justify-center pt-2"
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <motion.div
+            className="w-1 h-2 rounded-full bg-primary-foreground/60"
+            animate={{ opacity: [1, 0.3, 1], y: [0, 4, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.div>
       </motion.div>
     </section>
   );

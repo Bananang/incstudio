@@ -1,10 +1,12 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useState } from "react";
 
 const BOOKING_URL = "https://naver.me/xU4uKO9c";
 
 const FloatingBooking = () => {
   const { scrollY } = useScroll();
-  const isScrolled = useTransform(scrollY, [0, 200], [0, 1]);
+  const progress = useTransform(scrollY, [0, 200], [0, 1]);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.a
@@ -16,28 +18,34 @@ const FloatingBooking = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 2 }}
       whileHover={{ scale: 1.05 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       style={{
-        backgroundColor: useTransform(isScrolled, [0, 1], ["rgba(255,255,255,0.95)", "rgba(20,20,20,1)"]),
-        color: useTransform(isScrolled, [0, 1], ["rgba(20,20,20,1)", "rgba(255,255,255,1)"]),
+        backgroundColor: useTransform(progress, (v) =>
+          v > 0.5 || isHovered ? "hsl(215, 100%, 34%)" : "rgba(255,255,255,0.95)"
+        ),
+        color: useTransform(progress, (v) =>
+          v > 0.5 || isHovered ? "rgba(255,255,255,1)" : "rgba(20,20,20,1)"
+        ),
         boxShadow: useTransform(
-          isScrolled,
+          progress,
           [0, 1],
-          ["0 4px 24px rgba(0,0,0,0.1)", "0 4px 24px rgba(0,0,0,0.3)"]
+          ["0 4px 24px rgba(0,0,0,0.1)", "0 4px 24px rgba(0,71,171,0.3)"]
         ),
       }}
     >
       <motion.span
         style={{
-          opacity: useTransform(isScrolled, [0, 0.5], [1, 0]),
-          display: useTransform(isScrolled, (v) => (v > 0.5 ? "none" : "inline")),
+          opacity: useTransform(progress, [0, 0.5], [1, 0]),
+          display: useTransform(progress, (v) => (v > 0.5 || isHovered ? "none" : "inline")),
         }}
       >
         Reservation
       </motion.span>
       <motion.span
         style={{
-          opacity: useTransform(isScrolled, [0.5, 1], [0, 1]),
-          display: useTransform(isScrolled, (v) => (v <= 0.5 ? "none" : "inline")),
+          opacity: useTransform(progress, [0.5, 1], [0, 1]),
+          display: useTransform(progress, (v) => (v <= 0.5 && !isHovered ? "none" : "inline")),
         }}
       >
         예약하기

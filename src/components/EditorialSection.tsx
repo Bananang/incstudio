@@ -40,6 +40,9 @@ const EditorialBlock = ({ item, index }: { item: typeof sections[0]; index: numb
   const imgY = useTransform(scrollYProgress, [0, 1], [80, -80]);
   const imgScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1, 1.05]);
 
+  // Direction-based animation: left images slide from left, right images from right
+  const slideDirection = item.reverse ? 60 : -60;
+
   return (
     <div
       ref={ref}
@@ -53,6 +56,10 @@ const EditorialBlock = ({ item, index }: { item: typeof sections[0]; index: numb
           item.reverse ? "md:order-2 md:col-start-6" : "md:col-start-1"
         }`}
         style={{ y: imgY }}
+        initial={{ opacity: 0, x: slideDirection }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.img
           src={item.img}
@@ -70,13 +77,13 @@ const EditorialBlock = ({ item, index }: { item: typeof sections[0]; index: numb
         className={`md:col-span-5 px-8 md:px-16 ${
           item.reverse ? "md:order-1 md:col-start-1" : ""
         }`}
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
       >
-        <p className="text-[10px] tracking-[0.3em] text-muted-foreground mb-4">{item.tag}</p>
-        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.15] mb-6 whitespace-pre-line">
+        <p className="text-[10px] tracking-[0.3em] text-muted-foreground mb-4 font-serif-en">{item.tag}</p>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-6 whitespace-pre-line">
           {item.title}
         </h2>
         <p className="text-sm text-muted-foreground leading-[1.9] max-w-sm">{item.desc}</p>

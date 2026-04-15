@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import aboutImg from "@/assets/about-space.jpg";
 
 const features = [
   { title: "유니크한 공간", desc: "일렉트릭 블루 카펫과 오렌지 빈티지 가구로 꾸며진 특별한 공간" },
@@ -15,6 +16,7 @@ const AboutSection = () => {
     offset: ["start end", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const imgScale = useTransform(scrollYProgress, [0, 0.5], [1.1, 1]);
 
   return (
     <section id="about" ref={ref} className="snap-section relative min-h-screen flex items-center bg-background py-32">
@@ -22,18 +24,16 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
           {/* Left - Text */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <p className="text-[10px] tracking-[0.3em] text-muted-foreground mb-4 uppercase">
-              About the Space
+            <p className="text-[10px] tracking-[0.3em] text-muted-foreground mb-4 font-serif-en">
+              ABOUT THE SPACE
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] mb-8">
-              어떤
-              <br />
-              <span className="text-electric">공간</span>인가요
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground leading-tight mb-8">
+              감각으로 완성된 공간
             </h2>
             <div className="space-y-6">
               {features.map((f, i) => (
@@ -42,7 +42,7 @@ const AboutSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.6 }}
+                  transition={{ delay: 0.2 + i * 0.1, duration: 0.6, ease: "easeOut" }}
                   className="border-b border-border pb-4"
                 >
                   <h3 className="text-sm font-bold tracking-wide mb-1">{f.title}</h3>
@@ -52,16 +52,17 @@ const AboutSection = () => {
             </div>
           </motion.div>
 
-          {/* Right - decorative block */}
-          <motion.div className="relative" style={{ y }}>
-            <div className="w-full aspect-[3/4] bg-electric" />
-            <motion.div
-              className="absolute -bottom-8 -left-8 w-2/3 h-24 bg-secondary"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
+          {/* Right - Image */}
+          <motion.div className="relative overflow-hidden" style={{ y }}>
+            <motion.img
+              src={aboutImg}
+              alt="INC STUDIO 내부"
+              className="w-full aspect-[3/4] object-cover"
+              style={{ scale: imgScale }}
+              initial={{ opacity: 0, scale: 1.05 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              style={{ transformOrigin: "left" }}
+              transition={{ duration: 1, ease: "easeOut" }}
             />
           </motion.div>
         </div>
