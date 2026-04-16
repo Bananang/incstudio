@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 const BOOKING_URL = "https://naver.me/xU4uKO9c";
 
 const services = [
-  { title: "파티룸 대여", desc: "생일파티, 기념일, 모임 등 다양한 파티를 위한 프라이빗 공간", num: "01" },
-  { title: "스튜디오 촬영", desc: "프로필, 화보, SNS 콘텐츠 촬영을 위한 감각적인 스튜디오", num: "02" },
-  { title: "브라이덜 샤워", desc: "결혼을 앞둔 신부를 위한 특별한 브라이덜 샤워 파티", num: "03" },
-  { title: "소규모 이벤트", desc: "팬미팅, 소규모 전시, 팝업 등 크리에이티브한 이벤트 공간", num: "04" },
+  { title: "파티 & 브라이덜(Private Celebration)", desc: "생일파티, 기념일, 브라이덜 샤워 등 소중한 순간을 더욱 특별하게 만들어주는 프라이빗 공간", num: "01" },
+  { title: "크리에이티브 스튜디오(Creative Studio)", desc: "프로필, 화보, SNS 콘텐츠와 브이로그 촬영이 가능한 감각적인 세트와 소품이 갖춰진 공간", num: "02" },
+  { title: "소규모 모임(Social Gathering)", desc: "동아리, 독서 모임, 팬콘서트 시청, 친구 모임 등 다양한 소셜 활동을 위한 편안한 공간", num: "03" },
+  { title: "쿠킹 & 다이닝(Cooking & Dining)", desc: "다양한 주방도구와 식기 완비로 직접 요리부터 식사까지 가능한 브런치·홈파티 공간", num: "04" },
 ];
 
 const ServicesSection = () => {
