@@ -29,7 +29,7 @@ const Footer = () => {
             </p>
             <div className="space-y-1 text-sm text-background/50">
               <p>
-                회사명 <span className="text-background/70">INC 스튜디오</span>
+                회사명 <span className="text-background/70">INC STUDIO(아이엔씨 스튜디오)</span>
                 <span className="mx-3 text-background/20">|</span>
                 주소 <span className="text-background/70">서울 성북구 보문로34길 92 B1</span>
               </p>
